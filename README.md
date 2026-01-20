@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Can-O-Forms
+
+A self-hosted forms backend with minimal admin UI for static sites.
+
+## What is this?
+
+Can-O-Forms is a lightweight, self-hosted alternative to services like Formspree or Google Forms. It provides:
+
+- **Public submission API** for static sites (Astro, Figma Sites, etc.)
+- **Admin UI** to manage sites, forms, and submissions
+- **Email notifications** for new submissions
+- **Spam protection** via honeypot fields and rate limiting
+- **Multi-tenant architecture** supporting multiple sites per user
+
+Perfect for personal sites and client projects where you want full control over form data without relying on third-party services.
+
+## Project Status
+
+🚧 **Early Development** – The project scaffold is in place, but core features are not yet implemented. See [PRD.md](./PRD.md) for the complete requirements specification.
+
+## Architecture
+
+- **Framework**: Next.js (App Router)
+- **Database**: PostgreSQL with Prisma ORM
+- **Auth**: NextAuth (credentials only)
+- **Email**: Nodemailer (Migadu SMTP)
+- **Deployment**: Designed for Coolify self-hosting
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 20+
+- PostgreSQL database
+
+### Local Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your database credentials
+
+# Run database migrations
+npm run db:migrate
+
+# Seed initial admin user
+npm run db:seed
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- [PRD.md](./PRD.md) – Complete product requirements
+- API documentation – Coming soon
+- Deployment guide – Coming soon
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [LICENSE](./LICENSE) file for details.
